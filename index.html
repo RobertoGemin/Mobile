@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>360&deg; Image Gallery</title>
-    <meta name="description" content="voorbeeld">
+    <meta name="description" content="360&deg; Image Gallery - A-Frame">
     <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
     <script src="https://unpkg.com/aframe-event-set-component@5/dist/aframe-event-set-component.min.js"></script>
     <script src="https://unpkg.com/aframe-layout-component@5.3.0/dist/aframe-layout-component.min.js"></script>
@@ -14,13 +14,14 @@
     <a-scene>
       <a-assets>
         <img id="city" crossorigin="anonymous" src="https://raw.githubusercontent.com/RobertoGemin/3D-models/master/360a.jpg">
-        <img id="city-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
+        <img id="icon-thumb" crossorigin="anonymous" src="https://raw.githubusercontent.com/RobertoGemin/3D-models/master/logo.png">
         <img id="cubes-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-cubes.jpg">
-        <img id="sechelt-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg">
         <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
-        <img id="cubes" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg">
-        <img id="sechelt" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
-
+        <img id="cubes" crossorigin="anonymous" src="https://raw.githubusercontent.com/RobertoGemin/3D-models/master/360b.jpg">
+      
+ 
+     
+        
         <!-- Image link template to be reused. -->
         <script id="link" type="text/html">
           <a-entity class="link"
@@ -30,20 +31,39 @@
             event-set__mouseleave="scale: 1 1 1"
             event-set__click="_target: #image-360; _delay: 300; material.src: ${src}"
             proxy-event="event: click; to: #image-360; as: fade"
+            event-set__mousedown="_target:  #bla; visible: false"
+            event-set__mouseup="_target:  #bla; visible: false"
+
             sound="on: click; src: #click-sound"></a-entity>
         </script>
       </a-assets>
 
+      
+      
+      <a-entity id="firstID" template="src:first.html"   position="-3.5 1 -8"></a-entity>
+      <a-entity id="secondID" template="src:second.html" position="3.5 1 -8"></a-entity>
+      
       <!-- 360-degree image. -->
-      <a-sky id="image-360" radius="10" src="#city"
+      <a-sky id="image-360" radius="10" src="#city" rotation="0 280 0"
              animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
              animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
 
-      <!-- Image links. -->
+      
       
 
+      
+      
+      
+      
+      
+      
+  
+      
+
+      
       <!-- Camera + cursor. -->
-      <a-entity id="camera" camera look-controls>
+      <a-entity id="rig" rotation="0 0 0">
+      <a-entity id="camera" camera look-controls >
         <a-cursor
           id="cursor"
           animation__click="property: scale; startEvents: click; from: 0.1 0.1 0.1; to: 1 1 1; dur: 150"
@@ -52,6 +72,8 @@
           event-set__mouseleave="_event: mouseleave; color: black"
           raycaster="objects: .link"></a-cursor>
       </a-entity>
-    </a-scene>
+        </a-entity>
+        </a-scene>
+      
   </body>
 </html>
