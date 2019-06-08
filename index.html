@@ -49,6 +49,36 @@
              animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
 
       
+       <script id="firstlook" type="text/html">
+          <a-entity class="link"     
+       geometry="primitive: plane" 
+                   material="shader: flat; src:#icon-thumb ;alphaTest: 0.5; side: double;color: black"
+       
+          event-set__click="_target: #image-360; _delay: 300; material.src: #city"
+          event-set__enter= "_event: click;_target:#f; _delay: 300; visible: false"
+          event-set__enter__2= "_event: click; _target:#s; _delay: 300; visible: true"
+          event-set__enter__3= "_event: click; _target:#rig; rotation: 0 30 0"
+          proxy-event="event: click; to: #image-360; as: fade"
+            
+          event-set__mouseenter="scale: 1.5 1.5 1.5"
+           event-set__mouseleave="scale: 1 1  1"
+           
+           
+    
+           sound="on: click; src: #click-sound"></a-entity>
+        </script>
+      
+
+            <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
+              
+        <a-entity  scale=" 1 1 1"  id="f" template="src: #firstlook" data-src="#city" data-thumb="#icon-thumb"
+                  visible="false"
+                    animation="property: position; 
+                               easing: easeInOutQuad; dir: alternate; dur: 1000; to: 0 -0.10 0; loop: true">
+
+  
+                 </a-entity>
+       </a-entity>
       
 
       
