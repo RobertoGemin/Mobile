@@ -18,28 +18,7 @@
         <img id="cubes-thumb" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-cubes.jpg">
         <audio id="click-sound" crossorigin="anonymous" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
         <img id="cubes" crossorigin="anonymous" src="https://raw.githubusercontent.com/RobertoGemin/3D-models/master/360b.jpg">
-      
- 
-     
-         <script id="firstlook" type="text/html">
-          <a-entity class="link"     
-       geometry="primitive: plane" 
-                   material="shader: flat; src:#icon-thumb ;alphaTest: 0.5; side: double;color: black"
-       
-          event-set__click="_target: #image-360; _delay: 300; material.src: #city"
-          event-set__enter= "_event: click;_target:#f; _delay: 300; visible: false"
-          event-set__enter__2= "_event: click; _target:#s; _delay: 300; visible: true"
-          event-set__enter__3= "_event: click; _target:#rig; rotation: 0 30 0"
-          proxy-event="event: click; to: #image-360; as: fade"
-            
-          event-set__mouseenter="scale: 1.5 1.5 1.5"
-           event-set__mouseleave="scale: 1 1  1"
-           
-           
-    
-           sound="on: click; src: #click-sound"></a-entity>
-        </script>
-      
+
         <!-- Image link template to be reused. -->
         <script id="link" type="text/html">
           <a-entity class="link"
@@ -56,8 +35,6 @@
         </script>
       </a-assets>
 
-      
-      
       <a-entity id="firstID" template="src:https://raw.githubusercontent.com/RobertoGemin/Mobile/master/first.html"   position="-3.5 1 -8"></a-entity>
       <a-entity id="secondID" template="src:https://raw.githubusercontent.com/RobertoGemin/Mobile/master/second.html" position="3.5 1 -8"></a-entity>
       
@@ -65,23 +42,6 @@
       <a-sky id="image-360" radius="10" src="#city" rotation="0 280 0"
              animation__fade="property: components.material.material.color; type: color; from: #FFF; to: #000; dur: 300; startEvents: fade"
              animation__fadeback="property: components.material.material.color; type: color; from: #000; to: #FFF; dur: 300; startEvents: animationcomplete__fade"></a-sky>
-
-      
-      
-
-         
-  
-      
-
-      
-      
-      
-      
-      
-      
-  
-      
-
       
       <!-- Camera + cursor. -->
       <a-entity id="rig" rotation="0 0 0">
