@@ -69,13 +69,16 @@
       
       
 
-            <a-entity rotation="0 0 0" animation="property: rotation; to: 0 360 0; loop: true; dur: 5000">
+         
               
-        <a-entity  scale=" 1 1 1"  id="f" template="src: #firstlook" data-src="#city" data-thumb="#icon-thumb">
+        <a-entity geometry="primitive: plane" 
+          
+          material="shader: flat; src:#icon-thumb ;alphaTest: .5; side: double; color: black"
+ position="3.5 1 -8" scale=" 1 1 1"  id="f" template="src: #firstlook" data-src="#city" data-thumb="#icon-thumb">
 
   
                  </a-entity>
-       </a-entity>
+   
       
 
       
